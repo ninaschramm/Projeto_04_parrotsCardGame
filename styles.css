@@ -1,0 +1,16 @@
+body {
+    background-color: #EEF9BF;
+    font-family: 'Roboto', sans-serif;
+    color: #75B79E;
+    font-size: 56px;
+    font-weight: 700;
+    line-height: 66px;
+}
+
+.topo {
+    margin-top: 40px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+}
