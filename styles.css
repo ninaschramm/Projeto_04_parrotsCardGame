@@ -12,6 +12,7 @@ body {
     width: 100%;
     display: flex;
     justify-content: center;
+    text-align: center;
 
 }
 
@@ -30,7 +31,7 @@ body {
 }
 
 .card {
-    width: 117px;
+    width: 118px;
     height: 146px;
     background: #A7E9AF;
     border: 1px solid #99CEA8;
@@ -38,24 +39,43 @@ body {
     margin: 20px;
     background-repeat: no-repeat;
     background-size: auto;
+    background-image: url(arq/front.png);
+    cursor: pointer;
+    transition: all 1s linear;
+    padding: 20px 6px;
+   
+}
+
+.card img {
+    width: 100px;
+    height: 100px;
+    margin: auto;
+    opacity: 0;
 }
 
 .turned {
-    background-color: red;
+    background-image: none;
 }
 
-.ex {
-    display: none;
+.turned img {
+    opacity: 1;
 }
 
-.parrot0 {
-    background-image: url(arq/fiestaparrot.gif);
-}
+@media (max-width: 414px) {
+    .cards {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
 
-.parrot1 {
-    background-image: url(arq/bobrossparrot.gif);
-}
+    .topo h1 {
+        font-size: 36px;
+        line-height: 42px;
+        text-align: center;
+        letter-spacing: -0.004em;
+    }
+    }
 
-.parrot2 {
-    background-image: url(arq/metalparrot.gif);
-}
+    
+    
