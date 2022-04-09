@@ -24,8 +24,8 @@ function dealCards() {
    
    for (i=0; i<cardsNumber/2; i++) {
       const parrot = parrotList[i];
-      cardList.push(`<div class='card ${parrot.name}' onclick='turnCard(this)'><img src='${parrot.img}'></div>`)
-      cardList.push(`<div class='card ${parrot.name}' onclick='turnCard(this)'><img src='${parrot.img}'></div>`)
+      cardList.push(`<div class='card' data-card='${parrot.name}' onclick='turnCard(this)'><img src='${parrot.img}'></div>`)
+      cardList.push(`<div class='card' data-card='${parrot.name}' onclick='turnCard(this)'><img src='${parrot.img}'></div>`)
    }
 console.log(cardList)
 cardList.sort(comparador)
@@ -42,40 +42,46 @@ function countMoves() {
 
 dealCards()
 
+let cardFlipped = false;
+let card1;
+let card2;
+let contador = 0;
+let matches = 0;
+
 function turnCard(elt) {
-   elt.classList.add("turned")
-   const statusList = []
-   for (let i=0; i<parrotList.length; i++) {
-      statusList.push(parrotList[i].status)}
-
-   if (statusList.includes("selected")) {
-         compareCard(elt)
-      }
-
+   contador += 1;
+   elt.classList.add("turned")   
+   if (cardFlipped == false) {
+      cardFlipped = true;
+      card1 = elt
+   }
    else {
-   for (let i=0; i<parrotList.length; i++) {
-      if (elt.classList.contains(`${parrotList[i].name}`) && parrotList[i].status == "notselected") {
-         parrotList[i].status = "selected"
-      }
+      cardFlipped = false;
+      card2 = elt
+      compareCards()
    }
+   
+   if (matches == cardList.length/2) {
+      alert(`Você ganhou em ${contador} jogadas!`)
+   }
+   console.log(card1, card2, cardFlipped)
 }
 
-// unturnCards()
 
-}
-
-function compareCard(elt) {
-   if (elt.classList.contains(`${parrotList[i].name}`) && parrotList[i].status == "selected") {
-      parrotList[i].status = "matched"
+function compareCards() {
+   if (card1.dataset.card === card2.dataset.card) {
+      card1.onclick = null;
+      card2.onclick = null;
+      matches += 1;
    }
-   else {parrotList[i].status = "notselected"}
+   else {
+     setTimeout(unturnCards, 1000);
+   }
 }
 
 function unturnCards() {
-   let cardsTurned = document.querySelectorAll(".turned");
-   for (let h=0; h<cardsTurned.length; h++) {
-      cardsTurned[h].classList.remove('turned')
-      }
+   card1.classList.remove("turned")
+   card2.classList.remove("turned")
    }
    
 
