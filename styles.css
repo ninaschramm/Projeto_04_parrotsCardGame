@@ -32,33 +32,47 @@ body {
 
 .card {
     width: 118px;
-    height: 146px;
+    height: 146px;    
+    margin: 20px;    
+    cursor: pointer;  
+    perspective: 800px; 
+}
+
+.card__inner {
+    width: 100%;
+    height: 100%;
+    transition: transform 1s;
+    transform-style: preserve-3d;
+    position: relative;    
+}
+
+.card__inner.turned {
+    transform: rotateY(180deg);
+    cursor: auto;
+}
+
+.card_face {
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0px 1px 6px 3px rgba(0,0,0,.3);
     background: #A7E9AF;
     border: 1px solid #99CEA8;
     border-radius: 5px;
-    margin: 20px;
-    background-repeat: no-repeat;
-    background-size: auto;
-    background-image: url(arq/front.png);
-    cursor: pointer;
-    transition: all 1s linear;
-    padding: 20px 6px;
-   
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.card img {
-    width: 100px;
+.card_face img {
     height: 100px;
-    margin: auto;
-    opacity: 0;
 }
 
-.turned {
-    background-image: none;
-}
-
-.turned img {
-    opacity: 1;
+.face_back {
+    transform: rotateY(180deg);
 }
 
 @media (max-width: 414px) {

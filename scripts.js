@@ -24,8 +24,27 @@ function dealCards() {
    
    for (i=0; i<cardsNumber/2; i++) {
       const parrot = parrotList[i];
-      cardList.push(`<div class='card' data-card='${parrot.name}' onclick='turnCard(this)'><img src='${parrot.img}'></div>`)
-      cardList.push(`<div class='card' data-card='${parrot.name}' onclick='turnCard(this)'><img src='${parrot.img}'></div>`)
+      cardList.push(`<div class='card'>
+      <div class='card__inner' data-card='${parrot.name}' onclick='turnCard(this)'>
+      <div class='card_face face_front'>
+      <img src='arq/front.png'>
+      </div>
+      <div class='card_face face_back'>
+      <img src='${parrot.img}'>
+      </div>
+      </div>
+      </div>`)         
+         
+      cardList.push(`<div class='card'>
+      <div class='card__inner' data-card='${parrot.name}' onclick='turnCard(this)'>
+      <div class='card_face face_front'>
+      <img src='arq/front.png'>
+      </div>
+      <div class='card_face face_back'>
+      <img src='${parrot.img}'>
+      </div>
+      </div>
+      </div>`)   
    }
 console.log(cardList)
 cardList.sort(comparador)
