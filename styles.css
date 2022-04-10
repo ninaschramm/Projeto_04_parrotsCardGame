@@ -7,8 +7,17 @@ body {
     line-height: 66px;
 }
 
+.timer {
+    font-size: 18px;
+    font-weight: 600;
+    width: 100%;
+    text-align: end;
+    right: 10%;
+    padding-right: 30px;
+}
+
 .topo {
-    margin-top: 40px;
+    margin-top: 30px;
     width: 100%;
     display: flex;
     justify-content: center;

@@ -54,9 +54,13 @@ cardList.sort(comparador)
    }
 }
 
+let meuTimer = setInterval(myTimer, 1000);
+let t = 0;
 
-function countMoves() {
-    
+function myTimer() {   
+   t++;
+   const timerdiv = document.querySelector(".timer");
+   timerdiv.innerHTML = `Segundos: ${t}`
 }
 
 dealCards()
@@ -82,6 +86,11 @@ function turnCard(elt) {
    
    if (matches == cardList.length/2) {
       alert(`Você ganhou em ${contador} jogadas!`)
+      alert(`Você ganhou em ${t} segundos`)
+      clearInterval(meuTimer)
+      let replay = prompt("Você gostaria de jogar novamente?")
+      if (replay === "sim") {location.reload()};
+      if (replay === "não") {alert("Até a próxima, campeão!")}
    }
    console.log(card1, card2, cardFlipped)
 }
